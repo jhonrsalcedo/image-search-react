@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Search from './components/Search';
+import Result from './components/Result';
 
 
 
@@ -9,7 +10,7 @@ class Apps extends Component {
     super(props);
     this.state = {
       query: '',
-      images:''
+      images:[]
     }
   }
 
@@ -29,7 +30,7 @@ class Apps extends Component {
     try {
       const response = await axios.get(url);
       //para comprabar que estamos recibiendo bien los datos de la Api ejecutiamos un console.log()
-      console.log(response.data.hits) 
+      //console.log(response.data.hits) 
 
       //luego de pasarla al state podemos tomar images y pasarla por otro componente, este servira para dibujar en pantalla lo que estamos buscando.
       this.setState({
@@ -64,7 +65,11 @@ class Apps extends Component {
             dataSearch={this.dataSearch}
           />
         </div>
-
+      <div className="row">
+        <Result
+            images={this.state.images}
+        />
+      </div>
 
       </div>
     );
