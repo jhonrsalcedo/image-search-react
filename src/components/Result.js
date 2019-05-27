@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Image from './Image';
+import Navegation from './Navigation';
 
 class Result extends Component {
    
@@ -15,13 +16,22 @@ class Result extends Component {
         return(
             //para no agregar marco extra usamos el React.fragment para llamar un componente
             <React.Fragment>
-                <div className="col-12 p-5 p-5 row">
-                    {this.props.images.map(images =>(
+                {/* <div id={result} className="col-12 p-5 p-5 row "> */}
+                <div className="col-12 p-5 p-5 row ">
+                    {this.props.images.map(image =>(
                         <Image 
-
+                        key={image.id}
+                        image={image}
                         />
                     ))}
                 </div>
+                <Navegation
+                //lo traemos de Apps this.props.
+                 previousPage={this.props.previousPage}
+                 nextPage={this.props.nextPage}
+                 page={this.props.page}
+                 totalPages={this.props.totalPages}
+                />
             </React.Fragment>
 
 
