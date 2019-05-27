@@ -41,8 +41,8 @@ class Apps extends Component {
       });
 
       //comprobar paginacion 
-      console.log(response.totalPages)
-      const totalPages = Math.ceil(response.totaPages / 30);
+      console.log(response.data.totalHits)
+      const totalPages = Math.ceil(response.data.totalHits / 30);
       //console.log(Math.ceil(response.totaPages / 30) )
 
       //luego de pasarla al state podemos tomar images y pasarla por otro componente, este servira para dibujar en pantalla lo que estamos buscando.
